@@ -12,7 +12,6 @@ export const useRecords = () => {
             
             const { data } = await api.get('/records', { params: payload })
             rowsTable.value = data.Items
-            totalRows.value = data.total
 
             return data
         } catch (error) {
