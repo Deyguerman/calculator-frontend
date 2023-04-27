@@ -69,7 +69,7 @@ module.exports = configure(function (ctx) {
 
       // publicPath: '/',
       // analyze: true,
-      env: require('dotenv').config().parsed,
+      env: require('dotenv').config(),
       // rawDefine: {}
       // ignorePublicFolder: true,
       // minify: false,
