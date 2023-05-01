@@ -19,7 +19,7 @@
       />
     </div>
 
-    <div class="col-12 row justify-center" style="min-height: 400px">
+    <div class="col-12 row justify-center" style="min-height: 400px" v-if="true">
       <RecordsTable />
     </div>
   </q-page>

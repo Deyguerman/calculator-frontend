@@ -12,11 +12,7 @@
       <q-list dense bordered class="rounded-borders">
         <q-item v-for="item in operations" :key="item.name">
           <q-item-section>
-            {{
-              item.id === 6
-                ? `${item.type} (Cost per String)`
-                : item.type
-            }}
+            {{ item.id === 6 ? `${item.type} (Cost per String)` : item.type }}
           </q-item-section>
           <q-item-section side>
             <q-badge align="middle" color="info" text-color="white">
@@ -36,7 +32,7 @@ import { computed } from "vue";
 
 const { getOperationsList } = useOperations();
 const operations = computed(() => {
-  return getOperationsList().sort((a, b) => (a.cost < b.cost ? -1 : 1));
+  return [...getOperationsList()].sort((a, b) => (a.cost < b.cost ? -1 : 1));
 });
 </script>
 

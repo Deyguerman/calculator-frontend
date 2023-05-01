@@ -81,9 +81,8 @@
 <script setup>
 import { useOperations } from "src/composables/operations";
 import { useRecords } from "src/composables/records";
-import { computed, onMounted, ref, watch } from "vue";
-const { getUserRecords, deleteRecord, loading, rowsTable, totalRows } =
-  useRecords();
+import { computed, onMounted, ref } from "vue";
+const { getUserRecords, deleteRecord, loading, rowsTable } = useRecords();
 const { getOperationsList } = useOperations();
 
 const columns = [
@@ -131,9 +130,8 @@ const confirm = ref(false);
 const itemToDelete = ref({});
 
 const operations = computed(() => {
-  return getOperationsList().sort((a, b) => (a.id < b.id ? -1 : 1));
+  return getOperationsList();
 });
-
 
 // Methods
 const openDeleteModal = (item) => {

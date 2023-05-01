@@ -43,15 +43,15 @@ export default boot(({ app, router }) => {
       ) {
         LocalStorage.remove('token');
         router.push('/login')
-      } else {
-        Notify.create({
-          color: "red",
-          textColor: "white",
-          icon: "cancel",
-          message: error?.response?.data?.error ?? (error.message ?? 'Server Error'),
-          position: "bottom-right",
-        })
       }
+
+      Notify.create({
+        color: "red",
+        textColor: "white",
+        icon: "cancel",
+        message: error?.response?.data?.error ?? error?.response?.data ?? (error.message ?? 'Server Error'),
+        position: "bottom-right",
+      })
 
       console.log(error)
       return Promise.reject(error.message);
